@@ -1,0 +1,46 @@
+.cardComp {
+    border: 1px solid rgb(230, 226, 204);
+    background-color: transparent;
+    background-position: absolute;
+    background: cover;
+    box-shadow: 2px 2px 2px rgb(223, 208, 124);
+    color: rgb(85, 136, 232);
+    display: inline-block;
+    margin: 1%;
+    padding: 1em;
+    vertical-align: top;
+    width: 33, 5%;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  .cardComp h3 
+    {
+    /* display: flex; */
+    text-align: center;
+    width: 250px;
+    margin-top: 5px;
+    color: rgb(183, 107, 36);
+    text-shadow: rgb(19, 19, 18) -1px 1px;
+    
+  }
+  
+  .cardComp h3:hover {
+    text-decoration: underline darkslategrey;
+    color: rgb(69, 70, 63);
+    text-shadow: rgb(151, 143, 101) -0.5px 0.5px;
+   
+  }
+  .cardComp img {
+    display: flex;
+    margin-left: 12%;
+    border-radius: 10px;
+    
+  }
+  .cardComp img:hover {
+    border: 2px outset rgba(119, 98, 28, 0.8);
+  }
+  .centrar{
+   margin-left: 0;
+   margin-right: 60%;
+  }

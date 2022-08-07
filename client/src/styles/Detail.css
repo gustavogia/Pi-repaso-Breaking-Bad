@@ -1,0 +1,104 @@
+.detail {
+   
+    margin: 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    background-position: center;
+    
+    background-attachment: fixed;
+    font-family: "Comic Neue", cursive;
+    
+  }
+  
+  .boton button {
+    border-color: rgb(223, 208, 124);
+    border: solid 2px;
+    border-width: 0.5px;
+    border-radius: 100px;
+    background-color: rgb(88, 72, 45);
+    transition: background-color 0.25s, color 0.25s;
+    padding: 7px;
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-bottom: 0px;
+    font-family: "Comic Neue", cursive;
+    cursor: pointer;
+    color: rgb(223, 208, 124);
+  }
+  .boton button:hover {
+    background-color: rgb(126, 123, 126);
+    color: white;
+    border: 2px outset rgba(119, 98, 28, 0.8);
+  }
+  
+  .detail h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 35px;
+    font-family: "Comic Neue", cursive;
+    color: rgb(50, 27, 7);
+
+  }
+  
+  .detail img {
+    width: 250px;
+    height: 250px;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .h3-2 h3,
+  h2 {
+    display: flex;
+    justify-content: left;
+    margin-left: 10%;
+    color: rgb(37, 72, 199);
+  }
+  
+  .details h3 {
+    margin-left: 10%;
+  }
+  
+  .details p {
+    margin-left: 17%;
+    margin-right: 17%;
+    background-color: rgba(44, 38, 6, 0.8);
+    padding: 2%;
+  }
+  
+  .details ul {
+    margin-left: 17%;
+    margin-right: 17%;
+    background-color: rgba(51, 45, 9, 0.8);
+    padding: 2%;
+  }
+  .delete button{
+    border: solid 2px transparent;
+        border-color: rgb(196, 87, 24);
+    border-width: 0.5px;
+    border-radius: 100px;
+    display: flex;    
+    align-items: center;
+   margin-top: 35px;
+   margin-right: 20px;
+   margin-left: 80%;
+    padding: 20px;
+    height: 25px;
+   
+    transition: background-color 0.25s, color 0.25s;
+    cursor: pointer;
+    color: rgb(234, 229, 226);
+    font-size: 1rem;
+    box-shadow: 
+    0 0 2px rgb(111, 140, 146), 
+    0 0 4px rgb(111, 140, 146),
+    0 0 6px rgb(111, 140, 146), 
+    0 0 8px rgb(84, 118, 145), 
+    0 0 8px rgb(84, 118, 145), 
+    0 0 8px rgb(84, 118, 145);
+    background: #d26b7c;
+  
+  }

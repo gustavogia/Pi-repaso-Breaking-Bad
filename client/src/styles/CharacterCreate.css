@@ -1,0 +1,90 @@
+
+  .crumbs {
+    margin: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 0.1rem;
+    color: rgb(186, 35, 9);
+    font-family: "Comic Neue", cursive;
+  
+  }
+
+  .container {
+    display: flex;
+    justify-content: left;
+    margin: 5px;
+    color: rgb(186, 35, 9);
+    border:solid;
+    border-radius: 10px;
+   
+  }
+.gus {
+  border: #114668;
+  padding: 5px 5px 5px 5px;
+
+  
+}
+.gust{
+  
+  padding: 5px 5px 5px 5px;
+  border-radius: 3px;
+  margin: 10px;
+  display: flex;
+  justify-content: left;
+  font-family: "Comic Neue", cursive;
+  text-align: left;
+}
+
+.label{
+  height: 20px;
+  border-radius: 20px;
+  padding: 5px 10px 10px 10px;
+  font-size: 1.2rem;
+  color: brown;
+  display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+.crumbs input {
+  border: solid transparent;
+  border-radius: 5px;
+  padding: 0.1em;
+  margin-left: 15px;
+  
+  width: 50%;
+}
+.grid-check {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: rgb(187, 223, 211);
+  border-radius: 3px;
+  padding: 5px 5px 5px 5px;
+}
+
+.cardComp {
+  border: 1px solid rgb(230, 226, 204);
+  background-color:rgb(223, 208, 124);
+  background-position: absolute;
+  background: cover;
+  box-shadow: 2px 2px 2px rgb(223, 208, 124);
+  color: rgb(85, 136, 232);
+  display: inline-block;
+  margin: 2%;
+  padding: 1em;
+  vertical-align: top;
+  width: 21, 5%;
+  border-radius: 15px;
+ margin-left: 25%;
+  
+}
