@@ -5,25 +5,30 @@ import { useDispatch, useSelector } from "react-redux";
 import "../styles/CharacterCreate.css"
 import "../styles/button.css"
 
-// function validate(input) {
-//     let errors = {};
+function validate(input) {
+    let errors = {};
 
-//     if (errors.name === '') {
-//         errors.name = `Please, enter the name`;
-//     } else {
-//         if (!/^[a-zA-Z\s]*$/.test(input.name)) {
-//             errors.name = `The Name can only contain letters.`;
-//         }
-//     }
-//     if (errors.nickname === '') {
-//         errors.nickname = `Please, enter the name`;
-//     } else {
-//         if (!/^[a-zA-Z\s]*$/.test(input.nickname)) {
-//             errors.name = `The Nickname can only contain letters.`;
-//         }
-//     }
-// return errors;
-// }
+    if (errors.name === '') {
+        errors.name = `Please, enter the name`;
+        
+    } else {
+        if (!/^[a-zA-Z\s]*$/.test(input.name)) {
+            errors.name = `The Name can only contain letters.`;
+        }
+    }
+    if (errors.nickname === '') {
+        errors.nickname = `Please, enter the name`;
+    } else {
+        if (!/^[a-zA-Z\s]*$/.test(input.nickname)) {
+            errors.name = `The Nickname can only contain letters.`;
+        }
+    }
+input.occupation.length < 1
+? (errors.occupation = "Choose at least one occupation")
+: (errors.occupation = "");
+
+return errors;
+}
 
 export default function CharacterCreate() {
     const dispatch = useDispatch()
@@ -53,12 +58,12 @@ export default function CharacterCreate() {
             ...input,
             [e.target.name]: e.target.value,
         }));
-        // setErrors(
-        //     validate({
-        //         ...input,
-        //         [e.target.name]: e.target.value,
-        //     })
-        // );
+        setErrors(
+            validate({
+                ...input,
+                [e.target.name]: e.target.value,
+            })
+        );
     }
 
     function handleCheck(e) {
@@ -77,16 +82,19 @@ export default function CharacterCreate() {
             ...input,
             occupation: [...input.occupation, e.target.value]
         })
+        setErrors(
+            validate({
+                ...input,
+                occupation: [...input.occupation, e.target.value]
+            })
+        );
     }
 
     function handleSubmit(e) {
         if(!input.name || !input.nickname || !input.birthday || !input.status || !input.occupation || !input.image){
         e.preventDefault();
         alert("Complete todos los campos para poder continuar")}
-        if(input.name.includes(e.target.value)){
-            
-            alert("El personaje ya existe")
-        }
+      
         else{
        e.preventDefault();
         dispatch(postCharacter(input))
@@ -136,9 +144,10 @@ export default function CharacterCreate() {
                         value={input.name}
                         name='name'
                         onChange={(e) => handleChange(e)}
-                        
-                    />
-            
+                                            />
+            <div>
+                <p>{errors.name}</p>
+            </div>
                 </div>
                 <div className="crumbs">
                     <h4 className="gust">Nickname: </h4>
@@ -149,9 +158,10 @@ export default function CharacterCreate() {
                         value={input.nickname}
                         name='nickname'
                         onChange={handleChange}
-                        
-                    />
-             
+                                            />
+             <div>
+                <p>{errors.nickname}</p>
+            </div>
                 </div>
                 <div className="crumbs">
                     <h4 className="gust">Birthday: </h4>
@@ -207,6 +217,9 @@ export default function CharacterCreate() {
                             <button onClick={() => handleDelete(d, i)}>x</button>
                         </div>
                     ))}
+<div>
+             {errors.occupation && <p>{errors.occupation}</p>}
+            </div>
 
                 </div>
                 <div className="btnenviar">
