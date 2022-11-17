@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameCharacters } from "../actions";
+import {BsSearch} from "react-icons/bs"
 
 export default function SearchBar () {
     const dispatch = useDispatch()
@@ -46,7 +47,7 @@ export default function SearchBar () {
             onChange = {(e) => handleInputChange(e)}
             
             />
-            <button type="submit" onClick={e => handleSubmit(e)}>Buscar</button>
+            <button type="submit" onClick={e => handleSubmit(e)}><BsSearch/></button>
             
         </div>
     )

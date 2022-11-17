@@ -2,39 +2,49 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { postCharacter, getOccupations } from '../actions/index.js'
 import { useDispatch, useSelector } from "react-redux";
-import "../styles/CharacterCreate.css"
-import "../styles/button.css"
-
-function validate(input) {
-    let errors = {};
-
-    if (errors.name === '') {
-        errors.name = `Please, enter the name`;
-        
-    } else {
-        if (!/^[a-zA-Z\s]*$/.test(input.name)) {
-            errors.name = `The Name can only contain letters.`;
-        }
-    }
-    if (errors.nickname === '') {
-        errors.nickname = `Please, enter the name`;
-    } else {
-        if (!/^[a-zA-Z\s]*$/.test(input.nickname)) {
-            errors.name = `The Nickname can only contain letters.`;
-        }
-    }
-input.occupation.length < 1
-? (errors.occupation = "Choose at least one occupation")
-: (errors.occupation = "");
-
-return errors;
-}
+import Swal from "sweetalert2";
+import "../styles/CharacterCreate.css";
+import "../styles/button.css";
 
 export default function CharacterCreate() {
+    const allcharacters= useSelector(state => state.characters)
     const dispatch = useDispatch()
     const history = useHistory()
     const occupations = useSelector((state) => state.occupations)
     const [errors, setErrors] = useState({});
+    const db = allcharacters.filter(e => e.createInDb === true)
+
+    function validate(input) {
+        let errors = {};
+    
+        if (!input.name === '') {
+            errors.name = `Please, enter the name`;
+            
+            let search = db.find(e => e.name.toLowerCase() === input.name.toLowerCase())
+             if(search){
+                 errors.name = "El Nombre del personaje ya existe"
+                 return errors
+             }
+            
+        } else {
+            if (!/^[a-zA-Z\s]*$/.test(input.name)) {
+                errors.name = `The Name can only contain letters.`;
+            }
+        }
+        if (!input.nickname === '') {
+            errors.nickname = `Please, enter the name`;
+        } else {
+            if (!/^[a-zA-Z\s]*$/.test(input.nickname)) {
+                errors.nickname = `The Nickname can only contain letters.`;
+            }
+        }
+    input.occupation.length < 1
+    ? (errors.occupation = "Choose at least one occupation")
+    : (errors.occupation = "");
+    
+    return errors;
+    }
+
 
     const ordenamiento = occupations.map((el)=>el.name).sort(
         function (a, b) {
@@ -91,23 +101,24 @@ export default function CharacterCreate() {
     }
 
     function handleSubmit(e) {
-        if(!input.name || !input.nickname || !input.birthday || !input.status || !input.occupation || !input.image){
+        if(!input.name || !input.nickname || !input.birthday || !input.status || !input.occupation ){
         e.preventDefault();
-        alert("Complete todos los campos para poder continuar")}
+        Swal.fire("Complete todos los campos para poder continuar")}
       
         else{
        e.preventDefault();
+       Swal.fire("Personaje creado!!");
         dispatch(postCharacter(input))
-        alert("Personaje creado!!");
-        history.push("/home")
         setInput({
             name: "",
             nickname: "",
             birthday: "",
             status: "",
-            image:"",
+            image:"" || "https://w7.pngwing.com/pngs/791/694/png-transparent-female-silhouette-user-avatar-animals-head-woman.png",
             occupation: []
         })
+        
+        // history.push("/home")
     }
     }
 
@@ -146,7 +157,7 @@ export default function CharacterCreate() {
                         onChange={(e) => handleChange(e)}
                                             />
             <div>
-                <p>{errors.name}</p>
+                <span>{errors.name}</span>
             </div>
                 </div>
                 <div className="crumbs">
@@ -181,7 +192,8 @@ export default function CharacterCreate() {
                         value={input.image}
                         name='image'
                         onChange={handleChange} 
-                        required/>
+                        placeholder="ingrese una imagen o deje por defecto la que esta"
+                        />
                 </div>
                 <br/>
                 <div className="crumbs">

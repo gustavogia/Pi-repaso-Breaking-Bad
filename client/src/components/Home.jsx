@@ -4,6 +4,7 @@ import { getCharacters, filterCharactersBystatus, filterCreated, orderByName } f
 import { Link } from 'react-router-dom'
 import Card from "./Card";
 import Paginado from "./Paginado";
+import {IoMdRefresh} from "react-icons/io"
 import SearchBar from "./SearchBar";
 import "../styles/Home.css"
 
@@ -57,8 +58,9 @@ export default function Home () {
             <button className="btnCreate">Crear personaje</button>
             </Link>
             <div className="showAll">
+              <span>Refrescar </span>  
             <button onClick={e => {handleClick(e)}}>
-                Volver a cargar todos los personajes
+            <IoMdRefresh/>
             </button>
             </div>            
             <div className="select">

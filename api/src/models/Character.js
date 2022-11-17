@@ -24,10 +24,12 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     status: {
-      type: DataTypes.ENUM('Alive', 'Deceased', 'Presumed dead', 'Unknown')
+      type: DataTypes.ENUM('Alive', 'Deceased', 'Presumed dead', 'Unknown'),
+      allowNull: true
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     createInDb: {
       type: DataTypes.BOOLEAN,

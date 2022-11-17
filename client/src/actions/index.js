@@ -36,7 +36,7 @@ export function getOccupations(){
 }
 
 export function postCharacter(payload){
-    return async function (dispatch){
+    return async function (){
         const response = await axios.post('http://localhost:3001/character', payload)
         console.log(response)
         return response;

@@ -1,6 +1,6 @@
 
 const initialState = {
-    characters: [],
+    characters: [], // aca es donde filtro
     allCharacters: [],
     occupations: [],
     detail: [],

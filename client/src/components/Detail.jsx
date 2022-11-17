@@ -2,6 +2,10 @@ import React , { Fragment, useEffect, useState } from "react";
 import { Link , useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail, deleteDetails,deletevideogamebyid} from "../actions/index.js";
+import {AiFillDelete} from "react-icons/ai"
+import {RiArrowGoBackLine} from "react-icons/ri"
+import {BiEdit} from "react-icons/bi"
+import Swal from "sweetalert2"
 import "../styles/Detail.css"
 
 export default function Detail(props){
@@ -16,31 +20,44 @@ export default function Detail(props){
     useEffect(() => {
         dispatch(getDetail(props.match.params.id));
         return () => {dispatch(deleteDetails())};
-    },[dispatch, props.match.params.id])
+    },[dispatch])
 
     const myCharacter = useSelector((state) => state.detail)
 
     const handleDelete = () => {
         dispatch(deletevideogamebyid (myCharacter[0].id));
-        alert("El juego ha sido eliminado")
+        Swal.fire("El Personaje ha sido eliminado")
         history.push("/home");
       };
 
+      const handleUpdate = () => {
+        dispatch(deletevideogamebyid (myCharacter[0].id));
+        Swal.fire("El Personaje ha sido actualizado")
+        history.push("/home");
+      };
     return (
        <Fragment>
         <div >
 <div className="boton">
             <Link to='/home'>
-            <button>Volver</button>
+            <button><RiArrowGoBackLine/></button>
         </Link>
         </div>
         {
-            myCharacter.length > 0 ?
-            (<div>
+           myCharacter.length > 0 ?
+            (
+            <div>
                 <div className="delete">
             {typeof myCharacter[0].id === "string" && (
               <button onClick={handleDelete} >
-                DELETE
+                <AiFillDelete/>
+              </button>
+            )}
+          </div> 
+          <div >
+            {typeof myCharacter[0].id === "string" && (
+              <button onClick={handleUpdate} >
+                <BiEdit/>
               </button>
             )}
           </div> 
@@ -52,7 +69,7 @@ export default function Detail(props){
                 
                 <h2 >Fecha Nacimiento: {myCharacter[0].birthday}</h2>
                 
-                <h2>Ocupaciones: {!myCharacter[0].createdInDb ? myCharacter[0].occupation + ', ' : myCharacter[0].occupations.map(el => el.name + ', ')}</h2>
+                <h2>Ocupaciones: {!myCharacter[0].createdInDb ? myCharacter[0].occupation + ' ' : myCharacter[0].occupations.map(el => el.name + (' '))}</h2>
                 
             </div> </div>) : (<h2>Loading...</h2>)
             
