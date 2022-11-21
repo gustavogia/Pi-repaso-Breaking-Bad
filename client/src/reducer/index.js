@@ -82,11 +82,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 loading: action.payload
             }
-            case 'DELETE_VIDEOGAME_BYID':
+            case 'DELETE_CHARACTER_BYID':
                 return {
                     ...state,
                 };
-        
+        case "UPDATE_CHARACTER_BYID":
+            return{
+                ...state,
+        }
         default:
         return state
     }

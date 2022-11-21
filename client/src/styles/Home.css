@@ -105,10 +105,11 @@
   }
   
   .cards {
-    margin-left: 7%;
-    display: grid;
+    margin-left: 8%;
+     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px; 
+   justify-items: first baseline;
     margin-bottom: 60px;
     color:rgb(226, 116, 43);
     /* padding: 8px;

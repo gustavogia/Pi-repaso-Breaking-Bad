@@ -1,14 +1,19 @@
 .detail {
-   
-    margin: 0;
-    width: 100%;
+   margin-top: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
     height: auto;
     position: absolute;
-    background-position: center;
+    /*background-position: center;*/
     
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     font-family: "Comic Neue", cursive;
+    border: 2px solid black;
     
+  }
+  .loading{
+    border: none;
   }
   
   .boton button {
@@ -50,15 +55,15 @@
     margin-bottom: 20px;
   }
   
-  .h3-2 h3,
+  /* .h3-2 h3,
   h2 {
     display: flex;
     justify-content: left;
     margin-left: 10%;
     color: rgb(37, 72, 199);
-  }
+  } */
   
-  .details h3 {
+  /* .details h3 {
     margin-left: 10%;
   }
   
@@ -74,7 +79,7 @@
     margin-right: 17%;
     background-color: rgba(51, 45, 9, 0.8);
     padding: 2%;
-  }
+  } */
   .delete button{
     border: solid 2px transparent;
         border-color: rgb(196, 87, 24);

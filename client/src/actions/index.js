@@ -84,17 +84,24 @@ export function deleteDetails() {
     })
 }
 }
-export function deletevideogamebyid(id) {
+export function deletecharacterbyid(id) {
     return async function (dispatch) {
       try {
         await axios.delete(`http://localhost:3001/delete/${id}`);
-        return dispatch({ type:'DELETE_VIDEOGAME_BYID' });
+        return dispatch({ type:'DELETE_CHARACTER_BYID' });
       } catch (error) {
         console.log(error);
       }
     };
   }
-
+  export function updatecharacterbyid(charupdate,id) {
+    return async function (dispatch) {
+      
+        await axios.put(`http://localhost:3001/update/${id}`,charupdate);
+        return dispatch({ type:'UPDATE_CHARACTER_BYID' });
+      
+    };
+  }
 
 // export function isloading(loading) {
 //         return {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { postCharacter, getOccupations } from '../actions/index.js'
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
@@ -9,7 +9,7 @@ import "../styles/button.css";
 export default function CharacterCreate() {
     const allcharacters= useSelector(state => state.characters)
     const dispatch = useDispatch()
-    const history = useHistory()
+    const navigate = useNavigate()
     const occupations = useSelector((state) => state.occupations)
     const [errors, setErrors] = useState({});
     const db = allcharacters.filter(e => e.createInDb === true)
@@ -107,18 +107,18 @@ export default function CharacterCreate() {
       
         else{
        e.preventDefault();
-       Swal.fire("Personaje creado!!");
-        dispatch(postCharacter(input))
-        setInput({
-            name: "",
-            nickname: "",
-            birthday: "",
-            status: "",
-            image:"" || "https://w7.pngwing.com/pngs/791/694/png-transparent-female-silhouette-user-avatar-animals-head-woman.png",
-            occupation: []
+       dispatch(postCharacter(input))
+       setInput({
+           name: "",
+           nickname: "",
+           birthday: "",
+           status: "",
+           image:"" || "https://w7.pngwing.com/pngs/791/694/png-transparent-female-silhouette-user-avatar-animals-head-woman.png",
+           occupation: []
         })
+        Swal.fire("Personaje creado!!");
         
-        // history.push("/home")
+       navigate(-1) 
     }
     }
 

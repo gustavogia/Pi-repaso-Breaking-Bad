@@ -54,7 +54,7 @@ export default function Home () {
         <div className="home">
             <h1>Breaking Bad API</h1>
             <SearchBar/>
-            <Link to= '/character' className="linkCreate">
+                       <Link to= '/character' className="linkCreate">
             <button className="btnCreate">Crear personaje</button>
             </Link>
             <div className="showAll">
@@ -85,13 +85,15 @@ export default function Home () {
                 </select>
                 </div>
                 <div className="paginate">
-                <Paginado charactersPerPage = {charactersPerPage}
+                <Paginado 
+                charactersPerPage = {charactersPerPage}
                  allCharacters={allCharacters.length}
                   paginado={paginado}
+                  currentPage={currentPage}
                   />
                 </div>
                 <div className="cards">
-                {currentCharacters && currentCharacters.map( (ch) => (
+                {!currentCharacters.length?<div>"No hay Personajes para mostrar con esos filtros"</div> :currentCharacters.map( (ch) => (
                     <div key={ch.id}>
                         <Link to={'/home/' + ch.id} className="linkCard">
                     <Card name={ch.name}
@@ -108,6 +110,7 @@ export default function Home () {
           charactersPerPage={charactersPerPage}
           allCharacters={allCharacters.length}
           paginado={paginado}
+          currentPage={currentPage}
         />
       </div>
       </div>

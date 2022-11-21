@@ -1,0 +1,33 @@
+.container {
+    border: 2px solid rgb(188, 132, 132);
+    border-radius: 5px;
+    background-color: rgb(141, 162, 155);
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+
+}
+
+
+
+.imagen {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(188, 132, 132);
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.letras h1,
+h2 {
+    color: rgb(173, 68, 68);
+}
+
+.letras span {
+    color: rgb(125, 119, 232);
+    display: flex;
+    flex-direction: row;
+    margin-left: 6px;
+}

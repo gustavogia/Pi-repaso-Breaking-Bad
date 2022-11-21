@@ -163,19 +163,19 @@ router.delete('/delete/:id', async (req,res)=>{
     
     // Ruta para actualizar los datos que tengo por body
     
-    router.put('/:name', async ( req,res) => {
+    router.put('/update/:id', async ( req,res) => {
         
         try{
-        const name = req.params.name
-        const {nickname} = req.body
+        const id = req.params.id
+        const {nickname,name} = req.body
     const cambio = await Character.update(
-            {nickname},
-        {where : {name}},
+            {nickname,name},
+        {where : {id:id}},
         
     )
-    res.status (200).send ("El nickname fue actualizado")
+    res.status (200).send ("Se ha actualizado el personaje")
     }
-    catch (error) {res.status(404).send("No se pudo actualizar el nickname")}
+    catch (error) {res.status(404).send("No se pudieron actualizar los datos")}
     })
     
 
