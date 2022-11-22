@@ -1,56 +1,88 @@
 .detail {
    margin-top: 25px;
-    margin-left: 15%;
+    margin-left: 20%;
     margin-right: 15%;
     width: 70%;
     height: auto;
     position: absolute;
-    /*background-position: center;*/
-    
-    /*background-attachment: fixed;*/
-    font-family: "Comic Neue", cursive;
-    border: 2px solid black;
-    
-  }
+       font-family: "Comic Neue", cursive;
+        }
+
+
   .loading{
     border: none;
   }
-  
-  .boton button {
+
+
+  .contenedor{
+/* flex-direction: row;
+display: inline-flex; */
+display:flex;
+    margin-left: 20px;
+    width: 80%;
+    padding: 20px;
+    gap:10px;
+    flex-direction: row;
+    background-position: center;    
+    background-attachment: fixed;
+    font-family: "Comic Neue", cursive;
+    justify-content: space-between;
+    background-color: #edf0f0;
+    border-style: double;
+    border-color: black;
+    border-radius: 20px;
+  }
+
+
+  .contenedor>div{
+    width: 80%;
+  }
+
+ 
+    .boton button {
     border-color: rgb(223, 208, 124);
     border: solid 2px;
     border-width: 0.5px;
     border-radius: 100px;
-    background-color: rgb(88, 72, 45);
+    background-color: rgb(227, 221, 211);
     transition: background-color 0.25s, color 0.25s;
     padding: 7px;
-    margin-top: 10px;
-    margin-left: 20%;
+    /* margin-top: 10px;
+    margin-left: 10px; */
     margin-bottom: 0px;
     font-family: "Comic Neue", cursive;
     cursor: pointer;
-    color: rgb(223, 208, 124);
+    color: rgb(53, 52, 46);
   }
+
+
   .boton button:hover {
     background-color: rgb(126, 123, 126);
     color: white;
     border: 2px outset rgba(119, 98, 28, 0.8);
   }
   
-  .detail h1 {
+  .contenedor h1  {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 25px;
     margin-top: 30px;
     font-size: 35px;
     font-family: "Comic Neue", cursive;
-    color: rgb(50, 27, 7);
+    color: rgb(208, 119, 41);
 
   }
-  
-  .detail img {
+  /* .detail h2{
+    flex-direction: row;
+    display: inline-flex;
+
+  } */
+
+  .foto{
     width: 250px;
     height: 250px;
-    margin-left: 5%;
+    margin-left: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -63,23 +95,25 @@
     color: rgb(37, 72, 199);
   } */
   
-  /* .details h3 {
+   /* .details h3 {
     margin-left: 10%;
-  }
+  } */
   
-  .details p {
+  /* .details p {
     margin-left: 17%;
     margin-right: 17%;
     background-color: rgba(44, 38, 6, 0.8);
     padding: 2%;
-  }
-  
-  .details ul {
-    margin-left: 17%;
-    margin-right: 17%;
-    background-color: rgba(51, 45, 9, 0.8);
-    padding: 2%;
   } */
+  
+  .span {
+        font-size: 25px;
+        color: rgb(103, 90, 61);
+        justify-content: center;
+    
+  } 
+
+
   .delete button{
     border: solid 2px transparent;
         border-color: rgb(196, 87, 24);
@@ -96,7 +130,7 @@
     transition: background-color 0.25s, color 0.25s;
     cursor: pointer;
     color: rgb(234, 229, 226);
-    font-size: 1rem;
+    font-size: 1.5rem;
     box-shadow: 
     0 0 2px rgb(111, 140, 146), 
     0 0 4px rgb(111, 140, 146),
@@ -104,6 +138,35 @@
     0 0 8px rgb(84, 118, 145), 
     0 0 8px rgb(84, 118, 145), 
     0 0 8px rgb(84, 118, 145);
-    background: #d26b7c;
+    background: #f06722;
+  
+  }
+
+  .update button{
+    border: solid 2px transparent;
+        border-color: rgb(196, 87, 24);
+    border-width: 0.5px;
+    border-radius: 100px;
+    display: flex;    
+    align-items: center;
+   margin-top: 25px;
+   margin-right: 20px;
+   margin-left: 80%;
+   margin-bottom: 10px;
+    padding: 20px;
+    height: 25px;
+   
+    transition: background-color 0.25s, color 0.25s;
+    cursor: pointer;
+    color: rgb(105, 94, 87);
+    font-size: 1.5rem;
+    box-shadow: 
+    0 0 2px rgb(111, 140, 146), 
+    0 0 4px rgb(111, 140, 146),
+    0 0 6px rgb(111, 140, 146), 
+    0 0 8px rgb(84, 118, 145), 
+    0 0 8px rgb(84, 118, 145), 
+    0 0 8px rgb(84, 118, 145);
+    background: #a5e5a0;
   
   }

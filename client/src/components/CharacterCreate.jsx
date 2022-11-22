@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link,  useNavigate } from "react-router-dom";
 import { postCharacter, getOccupations } from '../actions/index.js'
 import { useDispatch, useSelector } from "react-redux";
+import { RiArrowGoBackLine } from "react-icons/ri"
 import Swal from "sweetalert2";
 import "../styles/CharacterCreate.css";
 import "../styles/button.css";
@@ -107,6 +108,19 @@ export default function CharacterCreate() {
       
         else{
        e.preventDefault();
+       
+        Swal.fire({
+            title: "Warning",
+            text: "Are you sure you want to update this Character?",
+            icon: "warning",
+            showDenyButton: true,
+            denyButtonText: "Cancel",
+            denyButtonColor: "#FF5733",
+            confirmButtonText: "Created",
+            confirmButtonColor: "#72CE65",
+            
+          }).then((res) => {
+            if (res.isConfirmed) {
        dispatch(postCharacter(input))
        setInput({
            name: "",
@@ -115,10 +129,30 @@ export default function CharacterCreate() {
            status: "",
            image:"" || "https://w7.pngwing.com/pngs/791/694/png-transparent-female-silhouette-user-avatar-animals-head-woman.png",
            occupation: []
-        })
-        Swal.fire("Personaje creado!!");
+        })}})
+        .then(() => {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-right",
+              iconColor: "white",
+              customClass: {
+                popup: "colored-toast",
+              },
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: false,
+            });
+            Promise.resolve(
+              Toast.fire({
+                icon: "success",
+                title: `Coment created!`,
+              })
+            );
+            navigate(-1);
+            //.then(()=>{navigate(-1) })
+           
+          });
         
-       navigate(-1) 
     }
     }
 
@@ -139,15 +173,17 @@ export default function CharacterCreate() {
 
     return (
 
-        <div >
+        <div  >
+            <div className="boton">
             <Link to='/home'>
-                <button className="btn">Volver a Home</button>
+                <button><RiArrowGoBackLine/></button>
             </Link>
+            </div>
            <div  className="cardComp">
             <h1 className="crumbs"> Crea tu personaje</h1>
             <form onSubmit={(e) => handleSubmit(e)} >
                 <div className="crumbs">
-                    <h4 className="gust">Nombre: </h4>
+                    <h4 className="gust">Name: </h4>
                     <input
 
                         placeholder="Nombre del personaje"

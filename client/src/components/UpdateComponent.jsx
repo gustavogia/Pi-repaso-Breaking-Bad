@@ -48,20 +48,67 @@ const UpdateComponent = (props) => {
 
     const handleOnClick = (e) => {
         e.preventDefault();
-
+        if (!input.name.length && !input.nickname || !input.nickname && input.name.length || input.nickname && !input.name.length) {
+            Swal.fire("Are you sure don't make the changes ?");
+          } else{
+        Swal.fire({
+            title: "Warning",
+            text: "Are you sure you want to update this Character?",
+            icon: "warning",
+            showDenyButton: true,
+            denyButtonText: "Cancel",
+            denyButtonColor: "#72CE65",
+            confirmButtonText: "Update",
+            confirmButtonColor: "#FF5733",
+      
+          }).then((res) => {
+            if (res.isConfirmed) {
         dispatch(updatecharacterbyid(input, id))
-        return Swal.fire("Personaje Actualizado")
-        navigate('/home');
-
-
+        // return Swal.fire("Personaje Actualizado")
+        // navigate('/home');
+        // .then((res) => {
+        //     Swal.fire({
+        //       title: "Success",
+        //       text: "Your Character has been updated",
+        //       icon: "success",
+        //       confirmButtonText: "ok",
+        //       confirmButtonColor: "rgb(9, 102, 74)"
+        //     })})
+            
+        //     .then(()=>{navigate(-1)})
+            
+        .then(() => {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-right",
+              iconColor: "white",
+              customClass: {
+                popup: "colored-toast",
+              },
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: false,
+            });
+            Promise.resolve(
+              Toast.fire({
+                icon: "success",
+                title: `Coment updated!`,
+              })
+            );
+            //navigate(-1);
+           
+          });}
+          
+        })}
     }
+    
 
 
 
 
     return (
         <>
-            <div className='volver'>
+            <div className='boton'>
                 <Link to="/home">
                     <button><RiArrowGoBackLine /></button>
                 </Link>
@@ -72,7 +119,7 @@ const UpdateComponent = (props) => {
                     <div>
                         <h4 className="gust">Name: </h4>
                         <input
-                            placeholder="Nombre del videogame"
+                            placeholder="Nombre del personaje"
                             type='text'
                             value={characters.name}
                             name='name'

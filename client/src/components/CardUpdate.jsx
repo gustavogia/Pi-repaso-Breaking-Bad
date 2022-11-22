@@ -20,8 +20,8 @@ export const CardUpdate = ({image,nickname,name,status,occupations}) => {
               <div className='letras'>
                 <h1>Cambio en Vivo</h1>
         <h2>Name: <span> {name}</span></h2>
-        <h2 >NickName: <span> {nickname}</span></h2>
-        <h2 > Status: <span>{status}</span></h2>
+        <h2>NickName: <span> {nickname}</span></h2>
+        <h2 >Status: <span>{status}</span></h2>
         <h2>Occupation: <span>{occupations}</span></h2>
         </div>
 

@@ -88,3 +88,26 @@
  margin-left: 25%;
   
 }
+
+.boton button {
+  border-color: rgb(223, 208, 124);
+  border: solid 2px;
+  border-width: 0.5px;
+  border-radius: 100px;
+  background-color: rgb(227, 221, 211);
+  transition: background-color 0.25s, color 0.25s;
+  padding: 7px;
+  /* margin-top: 10px;
+  margin-left: 10px; */
+  margin-bottom: 0px;
+  font-family: "Comic Neue", cursive;
+  cursor: pointer;
+  color: rgb(53, 52, 46);
+}
+
+
+.boton button:hover {
+  background-color: rgb(126, 123, 126);
+  color: white;
+  border: 2px outset rgba(119, 98, 28, 0.8);
+}
