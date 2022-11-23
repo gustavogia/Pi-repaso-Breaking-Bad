@@ -56,7 +56,7 @@ export default function Home () {
         setOrden(`Ordenado ${e.target.value}`)
     }
     if (carga) {
-        return (<div ><h2>Loading..</h2></div>)
+        return (<div ><h2 className="loading">Loading..</h2></div>)
       }
     return (
         <div className="home">
