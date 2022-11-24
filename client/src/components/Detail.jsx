@@ -26,6 +26,8 @@ export default function Detail(props){
 
     const myCharacter = useSelector((state) => state.detail)
 
+    console.log("mi perso",myCharacter)
+
     const handleDelete = () => {
       Swal.fire({
         title: "Warning",
@@ -95,9 +97,11 @@ export default function Detail(props){
                 <h1>Status: <h2 className="span">{myCharacter[0].status}</h2></h1>
                 
                 <h1 >Fecha Nacimiento: <h2 className="span">{myCharacter[0].birthday}</h2></h1>
-                
-                <h1>Ocupaciones: <h2 className="span">{!myCharacter[0].createdInDb ? myCharacter[0].occupation + ' ' : myCharacter[0].occupations.map(el => el.name + (' '))}</h2></h1>
-                
+               
+                 {/* <h1>Ocupaciones: <h2 className="span">{!myCharacter[0].createdInDb ? myCharacter[0].occupation + ' ' : myCharacter[0].occupations.map(el => el.name + (' '))}</h2></h1>
+                */}
+                  <h1>Ocupaciones: <h2 className="span">{myCharacter[0].occupations?.map(el => (el.name?el.name :el))? myCharacter[0].occupations?.map(el => (el.name?el.name :el + (" - "))):myCharacter[0].occupation.join( " - " )}</h2></h1>
+
             </div></div></div>) : (<h2 className="loading">Loading...</h2>)
             
         }
