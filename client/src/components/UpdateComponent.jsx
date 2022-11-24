@@ -92,12 +92,13 @@ const UpdateComponent = (props) => {
             Promise.resolve(
               Toast.fire({
                 icon: "success",
-                title: `Coment updated!`,
+                title: `Character updated!`,
               })
             );
-            //navigate(-1);
+            
            
-          });}
+          })
+          .then(()=> {navigate(`/home/${id}`)});;}
           
         })}
     }
